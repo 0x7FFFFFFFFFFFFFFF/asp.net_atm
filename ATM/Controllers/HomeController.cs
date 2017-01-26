@@ -31,5 +31,24 @@ namespace ATM.Controllers
         {
             return View("About");
         }
+
+        public ActionResult Serial(string letterCase)
+        {
+            if (letterCase == "lower")
+            {
+                return Content("aspdotnetmvc5");
+            }
+            if (letterCase == "upper")
+            {
+                // return Content("ASPDOTNETMVC5");
+                // If we don't provide the upper case version serial number, we can
+                // return a http status code
+                return new HttpStatusCodeResult(403);
+            }
+
+
+            return Content("ASPDOTNETMVC5");
+
+        }
     }
 }
