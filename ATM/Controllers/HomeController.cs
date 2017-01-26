@@ -12,6 +12,10 @@ namespace ATM.Controllers
         {
             return View();
         }
+        public ActionResult IndexNoLayout()
+        {
+            return PartialView();
+        }
 
         public ActionResult About()
         {
@@ -45,10 +49,14 @@ namespace ATM.Controllers
                 // return a http status code
                 return new HttpStatusCodeResult(403);
             }
-
-
             return Content("ASPDOTNETMVC5");
+        }
 
+        // Use the following URL to test
+        // Get /home/testjson
+        public ActionResult TestJson()
+        {
+            return Json(new {name = "Edde", age = 35}, JsonRequestBehavior.AllowGet);
         }
     }
 }
