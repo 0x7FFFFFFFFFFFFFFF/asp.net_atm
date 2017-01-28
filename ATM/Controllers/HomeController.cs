@@ -58,5 +58,13 @@ namespace ATM.Controllers
         {
             return Json(new {name = "Edde", age = 35}, JsonRequestBehavior.AllowGet);
         }
+
+
+        // Use the following URL to test redirect
+        // Get /home/testredirect
+        public ActionResult TestRedirect()
+        {
+            return RedirectToAction("Index");
+        }
     }
 }
