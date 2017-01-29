@@ -26,11 +26,20 @@ namespace ATM.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
+            ViewBag.MyMessage = "Have questions? Contact us!";
+            // TempData["message"] = "Test message";
+            // ViewBag only take effects when you return View() in the end. If you redirect
+            // to another page, then it will not take effect. But you can use TempData to transfer
+            // message from an action to another
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Contact(string message)
+        {
+            ViewBag.MyMessage = "Thanks, we got your message";
+            return View();
+        }
         public ActionResult Foo()
         {
             return View("About");
