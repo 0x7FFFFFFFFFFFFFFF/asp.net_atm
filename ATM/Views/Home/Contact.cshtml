@@ -27,3 +27,31 @@ You are using:
 
 Asp.net is smart enough and email address like edde@outlook.com will not confuse the engine. However
 twitter account like @@Edde should be writtin as @@@@Edde.
+
+<hr />
+
+You can use @@helper to define a function and you can use it anywhere even before it was defined.
+
+@{
+    var data = new List<Decimal> { 10, 22, -23.5m, 3, -2, 0 };
+}
+<ul>
+    @foreach (decimal d in data)
+    {
+        <li>@formatAmount(d)</li>
+    }
+</ul>
+
+@formatAmount(22)
+<br />
+@formatAmount(-22)
+
+@helper formatAmount(decimal amount)
+{
+var color = "green";
+if (amount < 0)
+{
+    color = "red";
+}
+    <span style="color:@color">@String.Format("{0:c}", amount)</span>
+}
